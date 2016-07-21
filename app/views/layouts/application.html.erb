@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en-GB">
   <head>
-    <title>DearfriendRails</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Dear Friend</title>
     <%= csrf_meta_tags %>
+    <meta name="description" content="{{description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://use.typekit.net/ojz0uvt.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <meta property="og:title" content="Dear Friend">
+
+    <!-- {{#if images}}
+      <meta property="og:description" content="A letter to {{recipient}}, {{description}}. From {{sender}}">
+      <meta property="og:image" content="http://dearfriend.org.uk/{{path}}/1.jpg">
+    {{else}} -->
+      <meta property="og:description" content="A letter-writing project celebrating women in public life and struggles for liberation.">
+      <meta property="og:image" content="http://dearfriend.org.uk/assets/img/logos/df.png">
+    <!-- {{/if}} -->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+    <link rel="icon" href="/assets/img/favicon.png" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+  </head>
   <body>
-    <%= yield %>
+
+    <div class="main">
+
+      <%= render 'layouts/header' %>
+
+      <hr class="squiggle squiggle--1 js__hide-if-nav-visible">
+
+      <%= yield %>
+
+      <%= render 'layouts/footer' %>
+
+    </div>
   </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-49950216-2', 'auto');
+    ga('send', 'pageview');
+  </script>
 </html>
