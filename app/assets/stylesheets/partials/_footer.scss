@@ -33,10 +33,10 @@ footer {
     text-decoration: none;
     margin: 0.5em 0;
     &--twitter {
-      background-image: url("/assets/img/icons/twitter.png");
+      background-image: image-url("icons/twitter.png");
     }
     &--facebook {
-      background-image: url("/assets/img/icons/facebook.png");
+      background-image: image-url("icons/facebook.png");
     }
   }
 }

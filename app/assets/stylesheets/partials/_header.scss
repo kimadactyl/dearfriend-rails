@@ -9,12 +9,12 @@ $logo-aspect: 362 / 383;
   vertical-align: top;
   transition-duration: $default-animation-time;
   background-size: contain;
-  background-image: url("/assets/img/logos/df_small.png");
+  background-image: image-url("logos/df_small.png");
   background-repeat: no-repeat;
   width: $mobile-icons-size * $logo-aspect;
   height: $mobile-icons-size;
   @include mq($from: m) {
-    background-image: url("/assets/img/logos/df.png");
+    background-image: image-url("logos/df.png");
     width: $tablet-icons-size * $logo-aspect;
     height: $tablet-icons-size;
   }
@@ -93,7 +93,7 @@ $logo-aspect: 362 / 383;
     cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("/assets/img/icons/menu.png");
+    background-image: image-url("icons/menu.png");
     transition-duration: $default-animation-time;
     &:hover {
       opacity: 0.5;

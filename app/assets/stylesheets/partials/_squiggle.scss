@@ -9,61 +9,61 @@ $squiggle-scale: 0.5;
   background-size: auto 100%;
 
   &--1 {
-    background-image: url("/assets/img/squiggles/1.png");
+    background-image: image-url("squiggles/1.png");
     height: 29px * $squiggle-scale;
   }
 
   &--2 {
-    background-image: url("/assets/img/squiggles/2.png");
+    background-image: image-url("squiggles/2.png");
     height: 20px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-2.png");
+      background-image: image-url("squiggles/w-2.png");
     }
   }
 
   &--3 {
-    background-image: url("/assets/img/squiggles/3.png");
+    background-image: image-url("squiggles/3.png");
     height: 16px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-3.png");
+      background-image: image-url("squiggles/w-3.png");
     }
   }
 
   &--4 {
-    background-image: url("/assets/img/squiggles/4.png");
+    background-image: image-url("squiggles/4.png");
     height: 21px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-4.png");
+      background-image: image-url("squiggles/w-4.png");
     }
   }
 
   &--5 {
-    background-image: url("/assets/img/squiggles/5.png");
+    background-image: image-url("squiggles/5.png");
     height: 16px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-5.png");
+      background-image: image-url("squiggles/w-5.png");
     }
   }
 
   &--6 {
-    background-image: url("/assets/img/squiggles/6.png");
+    background-image: image-url("squiggles/6.png");
     height: 21px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-6.png");
+      background-image: image-url("squiggles/w-6.png");
     }
   }
 
   &--7 {
-    background-image: url("/assets/img/squiggles/7.png");
+    background-image: image-url("squiggles/7.png");
     height: 27px * $squiggle-scale;
     &--inverted {
-      background-image: url("/assets/img/squiggles/w-7.png");
+      background-image: image-url("squiggles/w-7.png");
     }
   }
 
   &--sponsor {
     margin-top: 2em;
-    background-image: url("/assets/img/squiggles/sponsor.png");
+    background-image: image-url("squiggles/sponsor.png");
     height: 29px * $squiggle-scale;
   }
 

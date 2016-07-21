@@ -1,6 +1,6 @@
 body {
   @include mq($from: l) {
-    background: url("/assets/img/background.jpg");
+    background: image-url("background.jpg");
     background-attachment: fixed;
     background-size: cover;
   }
