@@ -1,37 +1,13 @@
-<%= form_for(letter) do |f| %>
-  <% if letter.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(letter.errors.count, "error") %> prohibited this letter from being saved:</h2>
-
-      <ul>
-      <% letter.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for(letter) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :recieved %>
+    <%= f.input :published %>
+    <%= f.input :is_draft %>
+    <%= f.input :content %>
+    <%= f.input :preview %>
+    <%= f.file_field :scans, multiple: true %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :recieved %>
-    <%= f.datetime_select :recieved %>
-  </div>
-
-  <div class="field">
-    <%= f.label :published %>
-    <%= f.datetime_select :published %>
-  </div>
-
-  <div class="field">
-    <%= f.label :is_draft %>
-    <%= f.check_box :is_draft %>
-  </div>
-
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+    <%= f.action :submit %>
+  <% end %>
 <% end %>
