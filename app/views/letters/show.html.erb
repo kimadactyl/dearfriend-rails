@@ -1,28 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Recieved:</strong>
-  <%= @letter.recieved %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @letter.published %>
-</p>
-
-<p>
-  <strong>Is draft:</strong>
-  <%= @letter.is_draft %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @letter.content %>
-</p>
-
-<% @letter.scans.each do |scan| %>
-  <%= image_tag scan %>
-<% end %>
+<h1 class="page-title">To <strong>{{recipient}}</strong>, {{description}}. From <strong><%= @letter.authors.first.name %></strong>.</h1>
+<div class="grid">
+  <div class="grid__content">
+    <hr class="squiggle squiggle--4">
+    <article class="letter container">
+      <div class="letter__scan">
+        <div id="js-lightgallery">
+          <% @letter.scans.each do |scan| %>
+            <a href="#{scan}">
+              <%= image_tag scan, alt: "Scan of the letter" %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+      <h2>Transcript</h2>
+      <div class="letter__transcription">
+        <%= @letter.content %>
+      </div>
+    </article>
+  </div>
+  <div class="grid__aside">
+    <div class="letter__meta">
+      <hr class="squiggle squiggle--6">
+      <h2>About {{recipient}}</h2>
+      <p class="letter__description">
+        {{description}}.
+        {{#if born}}
+          Born {{born}}{{#if died}}, died {{died}}{{/if}}.
+        {{/if}}
+        {{#if website}}
+          <a href="{{{website}}}">More information about {{recipient}}</a>.
+        {{/if}}
+      </p>
+      <p>
+        Received {{ dateFormat this.received }}.</br>
+        Published {{ dateFormat this.published }}.
+      </p>
+    </div>
+  </div>
+</div>
 
 
 <%= link_to 'Edit', edit_letter_path(@letter) %> |

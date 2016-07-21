@@ -1,11 +1,22 @@
 <%= semantic_form_for(letter) do |f| %>
   <%= f.inputs do %>
+    <div id="tasks">
+      <%= f.semantic_fields_for :authors do |author| %>
+        <%= render 'author_fields', f: author %>
+        <div class="links">
+          <%= link_to_add_association 'add author', f, :authors %>
+        </div>
+      <% end %>
+    </div>
     <%= f.input :recieved %>
     <%= f.input :published %>
     <%= f.input :is_draft %>
     <%= f.input :content %>
-    <%= f.input :preview %>
-    <%= f.file_field :scans, multiple: true %>
+    <hr>
+    <%= f.label :preview %>
+    <%= f.file_field :preview %><br>
+    <%= f.label :scans %>
+    <%= f.file_field :scans, multiple: true %><br>
   <% end %>
   <%= f.actions do %>
     <%= f.action :submit %>

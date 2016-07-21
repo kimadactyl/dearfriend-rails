@@ -10,10 +10,10 @@
         <h2 class="h2 letters__title">Dear <%= link_to "<strong>{{recipient}}</strong>, {{description}}.", letter, class: "no-underline" %></h2>
         <p class="h3 letters__meta">
           Published <%= letter.published %><br>
-          From {{sender}}
+          From <%= letter.authors.first.name %>
         </p>
         <%= link_to letter do %>
-          <%= image_tag letter.preview, alt: "Letter to {{recipient}} from {{sender}}" %>
+          <%= image_tag letter.preview, alt: "Letter to {{recipient}} from #{letter.authors.first}" %>
         <% end %>
         <p>
           <%= link_to "Read on", letter, class: "letters__more" %>

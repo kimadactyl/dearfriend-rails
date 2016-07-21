@@ -1,47 +1,8 @@
-<%= form_for(recipient) do |f| %>
-  <% if recipient.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipient.errors.count, "error") %> prohibited this recipient from being saved:</h2>
-
-      <ul>
-      <% recipient.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @recipient do |f| %>
+  <%= f.inputs do %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :dob %>
-    <%= f.datetime_select :dob %>
-  </div>
-
-  <div class="field">
-    <%= f.label :website %>
-    <%= f.text_field :website %>
-  </div>
-
-  <div class="field">
-    <%= f.label :is_living %>
-    <%= f.check_box :is_living %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
 <% end %>

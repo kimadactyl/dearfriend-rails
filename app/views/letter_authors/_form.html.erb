@@ -1,27 +1,10 @@
-<%= form_for(letter_author) do |f| %>
-  <% if letter_author.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(letter_author.errors.count, "error") %> prohibited this letter_author from being saved:</h2>
-
-      <ul>
-      <% letter_author.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for @letter_author do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :author %>
+    <%= f.input :letter %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :author_id %>
-    <%= f.text_field :author_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :letter_id %>
-    <%= f.text_field :letter_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :input %>
+  <% end %>
 <% end %>
