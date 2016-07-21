@@ -1,0 +1,27 @@
+<%= form_for(letter_recipient) do |f| %>
+  <% if letter_recipient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(letter_recipient.errors.count, "error") %> prohibited this letter_recipient from being saved:</h2>
+
+      <ul>
+      <% letter_recipient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :recipient_id %>
+    <%= f.text_field :recipient_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :letter_id %>
+    <%= f.text_field :letter_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

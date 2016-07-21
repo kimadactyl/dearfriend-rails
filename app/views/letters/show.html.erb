@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recieved:</strong>
+  <%= @letter.recieved %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @letter.published %>
+</p>
+
+<p>
+  <strong>Is draft:</strong>
+  <%= @letter.is_draft %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @letter.content %>
+</p>
+
+<%= link_to 'Edit', edit_letter_path(@letter) %> |
+<%= link_to 'Back', letters_path %>

@@ -1,0 +1,1 @@
+json.partial! "letter_authors/letter_author", letter_author: @letter_author

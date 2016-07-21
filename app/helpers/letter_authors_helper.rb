@@ -1,0 +1,2 @@
+module LetterAuthorsHelper
+end

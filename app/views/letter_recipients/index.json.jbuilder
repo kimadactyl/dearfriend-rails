@@ -1,0 +1,1 @@
+json.array! @letter_recipients, partial: 'letter_recipients/letter_recipient', as: :letter_recipient
