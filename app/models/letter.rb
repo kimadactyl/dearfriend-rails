@@ -1,6 +1,4 @@
 class Letter < ApplicationRecord
-  has_one :author
-  has_one :recipient
   has_many :letter_authors
   has_many :authors, through: :letter_authors
   has_many :letter_recipients

@@ -10,7 +10,7 @@
         <h2 class="h2 letters__title">Dear
           <%= link_to letter, class: "no-underline" do %>
             <strong><%= letter.recipients.first.name %></strong>,
-            <%= letter.recipients.first.description %>
+            <%= letter.recipients.first.description %>.
           <% end %>
         </h2>
         <p class="h3 letters__meta">
