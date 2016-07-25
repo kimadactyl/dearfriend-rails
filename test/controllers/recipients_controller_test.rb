@@ -17,7 +17,7 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create recipient" do
     assert_difference('Recipient.count') do
-      post recipients_url, params: { recipient: { description: @recipient.description, dob: @recipient.dob, first_name: @recipient.first_name, is_living: @recipient.is_living, last_name: @recipient.last_name, website: @recipient.website } }
+      post recipients_url, params: { recipient: { description: @recipient.description, born: @recipient.born, died: @recipient.died, first_name: @recipient.first_name, last_name: @recipient.last_name, website: @recipient.website } }
     end
 
     assert_redirected_to recipient_url(Recipient.last)
@@ -34,7 +34,7 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update recipient" do
-    patch recipient_url(@recipient), params: { recipient: { description: @recipient.description, dob: @recipient.dob, first_name: @recipient.first_name, is_living: @recipient.is_living, last_name: @recipient.last_name, website: @recipient.website } }
+    patch recipient_url(@recipient), params: { recipient: { description: @recipient.description, born: @recipient.born, died: @recipient.died, first_name: @recipient.first_name, last_name: @recipient.last_name, website: @recipient.website } }
     assert_redirected_to recipient_url(@recipient)
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721153221) do
+ActiveRecord::Schema.define(version: 20160725133649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 20160721153221) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "description"
-    t.datetime "dob"
+    t.datetime "born"
     t.string   "website"
-    t.boolean  "is_living"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "died"
   end
 
   add_foreign_key "letter_authors", "authors"
