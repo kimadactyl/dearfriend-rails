@@ -5,6 +5,6 @@ FactoryGirl.define do
     description "MyString"
     born "1920-01-01"
     died "1980-05-01"
-    website "MyString"
+    website "http://example.com"
   end
 end

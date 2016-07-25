@@ -10,6 +10,7 @@ class LettersController < ApplicationController
   # GET /letters/1
   # GET /letters/1.json
   def show
+    @recipients = @letter.recipients
   end
 
   # GET /letters/new
