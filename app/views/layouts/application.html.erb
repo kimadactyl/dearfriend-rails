@@ -36,6 +36,8 @@
 
       <hr class="squiggle squiggle--1 js__hide-if-nav-visible">
 
+      <h1 class="page-title"><%= content_for?(:title) ? yield(:title) : "" %></h1>
+
       <%= yield %>
 
       <%= render 'layouts/footer' %>

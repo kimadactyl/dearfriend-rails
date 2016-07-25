@@ -1,5 +1,5 @@
 <article class="event__container">
- <h2 class="h1"><%= @event.title %></h2>
- <h3 class="h2"><time>{{ dateTimeFormat this.start}} &ndash; {{ timeFormat this.end}}</time>, {{{location}}}</h3>
- {{{contents}}}
+ <h2 class="h1"><%= link_to event.title, event %></h2>
+ <h3 class="h2"><time><%= event.start %> &ndash; <%= event.finish %></time>, {{{location}}}</h3>
+ <%= event.description %>
 </article>
