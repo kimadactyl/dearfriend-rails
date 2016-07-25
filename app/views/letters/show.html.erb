@@ -21,7 +21,7 @@
   <div class="grid__aside">
     <div class="letter__meta">
       <hr class="squiggle squiggle--6">
-      <h2>About {{recipient}}</h2>
+      <h2>About <%= @letter.recipients.first.name %></h2>
       <p class="letter__description">
         {{description}}.
         {{#if born}}

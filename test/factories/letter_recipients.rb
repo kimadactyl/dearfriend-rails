@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :letter_recipient do
-    recipient nil
-    letter nil
+    association :recipient
+    association :letter
   end
 end

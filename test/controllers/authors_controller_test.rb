@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AuthorsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @author = authors(:one)
+    @author = create(:author)
   end
 
   test "should get index" do

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LetterRecipientsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @letter_recipient = letter_recipients(:one)
+    @letter_recipient = create(:letter_recipient)
   end
 
   test "should get index" do

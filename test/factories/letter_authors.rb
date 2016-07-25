@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :letter_author do
-    author nil
-    letter nil
+    association :author
+    association :letter
   end
 end

@@ -1,5 +1,11 @@
 <%= semantic_form_for @recipient do |f| %>
   <%= f.inputs do %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :description %>
+    <%= f.input :dob %>
+    <%= f.input :website %>
+    <%= f.input :is_living %>
   <% end %>
 
   <%= f.actions do %>
