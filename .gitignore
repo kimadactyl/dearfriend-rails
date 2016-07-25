@@ -36,3 +36,4 @@ bower.json
 
 # Letters
 /db/letters
+/public/uploads/**

@@ -8,6 +8,8 @@
 
 
 require 'yaml'
+require 'carrierwave/orm/activerecord'
+
 # Iterate our old letters
 Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
   if File.directory? d
@@ -59,14 +61,29 @@ Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
       # Publish the letter
       published = DateTime.parse(meta["published"]) rescue nil
       recieved = DateTime.parse(meta["received"]) rescue nil
-      letter = Letter.create!(
+      @letter = Letter.create!(
         content: contents,
         recieved: recieved,
         published: published
       )
 
-      letter.authors << author
-      letter.recipients << recipient
+      File.open("#{d}/preview.jpg") do |f|
+        puts "#{d}/preview.jpg"
+        @letter.preview = f
+      end
+      @letter.save!
+
+      if meta["images"]
+        meta["images"].each_with_index do |image, idx|
+          File.open("#{d}/#{image}") do |f|
+            @letter.scans += [f]
+          end
+          @letter.save!
+        end
+      end
+
+      @letter.authors << author
+      @letter.recipients << recipient
 
     end
   end
