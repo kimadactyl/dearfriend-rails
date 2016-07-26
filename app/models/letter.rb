@@ -11,4 +11,11 @@ class Letter < ApplicationRecord
   mount_uploaders :scans, ScansUploader
   mount_uploader :preview, PreviewUploader
 
+  def recieved_pp
+    self.recieved.strftime(DATE_ONLY)
+  end
+
+  def published_pp
+    self.published.strftime(DATE_ONLY)
+  end
 end

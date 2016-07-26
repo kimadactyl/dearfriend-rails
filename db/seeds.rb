@@ -33,8 +33,8 @@ Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
         first_name = last_name
         last_name = nil
       end
-      born = DateTime.parse(meta["born"]) rescue nil
-      died = DateTime.parse(meta["died"]) rescue nil
+      born = Date.strptime(meta["born"].to_s, "%Y") rescue nil
+      died = Date.strptime(meta["died"].to_s, "%Y") rescue nil
       website =  meta["website"] rescue false
 
       recipient = Recipient.create!(
@@ -59,8 +59,9 @@ Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
       )
 
       # Publish the letter
-      published = DateTime.parse(meta["published"]) rescue nil
-      recieved = DateTime.parse(meta["received"]) rescue nil
+      published = DateTime.parse(meta["published"].to_s) rescue nil
+      recieved = DateTime.parse(meta["received"].to_s) rescue nil
+
       @letter = Letter.create!(
         content: contents,
         recieved: recieved,

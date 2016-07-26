@@ -6,12 +6,11 @@ class Event < ApplicationRecord
   end
 
   def from_until
-    full_date = "%B %e, %I:%M %p"
-    time_only = "%I:%M %p"
+
     if self.start.to_date == self.finish.to_date
-      self.start.strftime(full_date) + " — " + self.finish.strftime(time_only)
+      self.start.strftime(FULL_DATE) + " — " + self.finish.strftime(TIME_ONLY)
     else
-      self.start.strftime(full_date) + " — " + self.finish.strftime(full_date)
+      self.start.strftime(FULL_DATE) + " — " + self.finish.strftime(FULL_DATE)
     end
   end
 end

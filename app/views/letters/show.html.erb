@@ -25,9 +25,9 @@
       <p class="letter__description">
         <%= @recipients.first.description %>.
         <% if @recipients.first.born %>
-          Born <%= @recipients.first.born %>
+          Born <%= @recipients.first.born.year %>
           <% if @recipients.first.died %>
-          , died <%= @recipients.first.died %>
+          , died <%= @recipients.first.died.year %>
           <% end %>
           .
         <% end %>
@@ -36,8 +36,8 @@
         <% end %>
       </p>
       <p>
-        Received <%= @letter.recieved %>.</br>
-        Published <%= @letter.published %>.
+        Received <%= @letter.recieved_pp %>.</br>
+        Published <%= @letter.published_pp %>.
       </p>
     </div>
   </div>
