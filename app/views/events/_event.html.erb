@@ -1,5 +1,11 @@
 <article class="event__container">
- <h2 class="h1"><%= link_to event.title, event %></h2>
- <h3 class="h2"><time><%= event.start %> &ndash; <%= event.finish %></time>, {{{location}}}</h3>
- <%= event.description %>
+  <h2 class="h1"><%= event.title %></h2>
+  <h3 class="h2"><time><%= event.from_until %></time>, <%= event.address %></h3>
+  <%= event.description %>
+  <% unless event.eventbrite.empty? %>
+    <p><%= link_to "Book a place on Eventbrite", event.eventbrite %></p>
+  <% end %>
+  <% unless event.facebook.empty? %>
+    <p><%= link_to "Sign up on Facebook", event.facebook %></p>
+  <% end %>
 </article>
