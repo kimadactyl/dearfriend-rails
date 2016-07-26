@@ -88,3 +88,4 @@ Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
     end
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

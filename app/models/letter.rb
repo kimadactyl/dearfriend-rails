@@ -10,4 +10,5 @@ class Letter < ApplicationRecord
 
   mount_uploaders :scans, ScansUploader
   mount_uploader :preview, PreviewUploader
+
 end

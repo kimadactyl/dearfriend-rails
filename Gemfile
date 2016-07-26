@@ -35,6 +35,11 @@ gem 'formtastic'
 gem 'cocoon'
 # gem 'will_paginate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
+
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -70,6 +70,25 @@ class LettersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def letter_params
-      params.require(:letter).permit(:recieved, :published, :is_draft, :content, :preview, {scans: []} )
+      params.require(:letter).permit( :recieved,
+                                      :published,
+                                      :is_draft,
+                                      :content,
+                                      :preview,
+                                      {scans: []},
+                                      :letter_authors_attributes: [
+                                        :id,
+                                        :author_id,
+                                        :letter_id,
+                                        :_destroy,
+                                        :authors_attributes: [
+                                          :id,
+                                          :first_name,
+                                          :last_name,
+                                          :_destroy
+
+                                        ]
+                                      ]
+                                      )
     end
 end
