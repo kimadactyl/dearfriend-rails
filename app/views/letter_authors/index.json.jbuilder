@@ -1,1 +1,0 @@
-json.array! @letter_authors, partial: 'letter_authors/letter_author', as: :letter_author

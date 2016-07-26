@@ -1,1 +1,0 @@
-json.partial! "letter_recipients/letter_recipient", letter_recipient: @letter_recipient

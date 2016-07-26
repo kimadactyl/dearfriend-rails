@@ -74,19 +74,18 @@ class LettersController < ApplicationController
                                       :published,
                                       :is_draft,
                                       :content,
-                                      :preview,
                                       {scans: []},
-                                      :letter_authors_attributes: [
+                                      :preview,
+                                      letter_authors_attributes: [
                                         :id,
                                         :author_id,
                                         :letter_id,
                                         :_destroy,
-                                        :authors_attributes: [
+                                        authors_attributes: [
                                           :id,
                                           :first_name,
                                           :last_name,
                                           :_destroy
-
                                         ]
                                       ]
                                       )
