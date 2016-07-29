@@ -1,21 +1,11 @@
 ActiveAdmin.register Letter do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
-
   controller do
     def permitted_params
       params.permit! # allow all parameters
+    end
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
     end
   end
 
@@ -45,10 +35,19 @@ ActiveAdmin.register Letter do
        end
      end
 
+     panel "Recipients" do
+       table_for letter.recipients do
+         column "name" do |recipient|
+           recipient.name
+         end
+       end
+     end
+
      attributes_table do
        row :recieved
        row :published
        row :content
+       row :slug
        row :preview do
          image_tag(letter.preview.url(:thumb))
        end

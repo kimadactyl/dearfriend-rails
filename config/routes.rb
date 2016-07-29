@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
+
   ActiveAdmin.routes(self)
-  resources :events
-  resources :letter_recipients
-  resources :letter_authors
-  resources :letters
-  resources :recipients
-  resources :authors
+
+  resources :events, only: [:index, :show]
+  resources :letter_recipients, only: [:index, :show]
+  resources :letter_authors, only: [:index, :show]
+  resources :letters, only: [:index, :show]
+  resources :recipients, only: [:index, :show]
+  resources :authors, only: [:index, :show, :update]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/contact", to: "static_pages#contact"
   get "/contribute", to: "static_pages#contribute"

@@ -1,10 +1,10 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: [:show, :edit, :update, :destroy]
+  before_action :set_letter, only: [:show, :edit]
 
   # GET /letters
   # GET /letters.json
   def index
-    @letters = Letter.where.not(published: nil)
+    @letters = Letter.where.not(published: nil).order(:published).reverse
   end
 
   # GET /letters/1
@@ -17,6 +17,6 @@ class LettersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_letter
-      @letter = Letter.find(params[:id])
+      @letter = Letter.friendly.find(params[:id])
     end
 end

@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'friendly_id'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -36,6 +37,9 @@ gem 'cocoon'
 # gem 'will_paginate'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+
+# Markdown conversion
+gem 'redcarpet'
 
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
