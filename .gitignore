@@ -35,5 +35,4 @@ bower.json
 .powenv
 
 # Letters
-/db/letters
 /public/uploads/**
