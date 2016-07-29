@@ -1,5 +1,5 @@
 # Change these
-server '139.59.181.20', port: your_port_num, roles: [:web, :app, :db], primary: true
+server '139.59.181.20', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:kimadactyl/dearfriend-rails.git'
 set :application,     'dearfriend-rails'
