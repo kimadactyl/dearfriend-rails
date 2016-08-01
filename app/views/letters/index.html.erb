@@ -5,7 +5,7 @@
       <div class="letters">
         <hr class="squiggle squiggle--2">
         <h2 class="h2 letters__title">
-          Dear <%= link_to letter, class: "no-underline" do %><%= letter.recipients_pp %>.<% end %>
+          Dear <%= link_to letter, class: "no-underline" do %><%= letter.recipients_pp.html_safe %>.<% end %>
         </h2>
         <p class="h3 letters__meta">
           Published <%= letter.published_pp %><br>
