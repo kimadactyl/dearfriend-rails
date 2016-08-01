@@ -15,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,9 +26,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Cleaner urls
 gem 'friendly_id'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 gem 'formtastic'
 gem 'cocoon'
@@ -40,6 +38,7 @@ gem 'mini_magick'
 # Markdown conversion
 gem 'redcarpet'
 
+# Admin and users
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
@@ -65,6 +64,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rack-livereload'
   gem 'guard-livereload'
+  gem 'faker'
 
   gem 'capistrano',         require: false
   gem 'capistrano-rvm',     require: false
