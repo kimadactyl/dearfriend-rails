@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index]
   resources :letter_recipients, only: [:index, :show]
   resources :letter_authors, only: [:index, :show]
   resources :letters, only: [:index, :show]

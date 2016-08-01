@@ -2,6 +2,8 @@
 <html class="no-js" lang="en-GB">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:site_name" content"Dear Friend">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <% if content_for?(:meta_title) %>
       <title><%= yield(:meta_title) %> | Dear Friend</title>
@@ -13,20 +15,15 @@
       <title>Dear Friend</title>
       <meta property="og:description" content="A letter-writing project celebrating women in public life and struggles for liberation.">
     <% end %>
-
+    <% if content_for?(:meta_image) %>
+      <meta property="og:image" content="<%= image_url yield(:meta_image) %>">
+    <% else %>
+      <meta property="og:image" content="<%= image_url "logos/df.png" %>">
+    <% end %>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script src="https://use.typekit.net/ojz0uvt.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <meta property="og:site_name" content"Dear Friend">
-    <!-- {{#if images}}
-      <meta property="og:description" content="A letter to {{recipient}}, {{description}}. From {{sender}}">
-      <meta property="og:image" content="http://dearfriend.org.uk/{{path}}/1.jpg">
-    {{else}} -->
-      <meta property="og:image" content="http://dearfriend.org.uk/assets/img/logos/df.png">
-    <!-- {{/if}} -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
