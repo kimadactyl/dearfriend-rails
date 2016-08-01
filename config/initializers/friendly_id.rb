@@ -71,7 +71,7 @@ FriendlyId.defaults do |config|
   #
   config.use Module.new {
     def should_generate_new_friendly_id?
-      slug.blank? || slug.to_i == 0 || published_changed?
+      slug.blank? || slug.to_i > 0 || published_changed?
     end
   }
   #
