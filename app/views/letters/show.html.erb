@@ -1,4 +1,6 @@
-<h1 class="page-title">To <strong><%= @recipients.first.name %></strong>, <%= @recipients.first.description %>. From <strong><%= @letter.authors.first.name %></strong>.</h1>
+<% provide(:meta_title, "A letter to #{@recipients.first.name}, #{@recipients.first.description}. From #{@letter.authors.first.name}") %>
+<% provide(:title, "To <strong>#{@recipients.first.name}</strong>, #{@recipients.first.description}. From <strong>#{@letter.authors.first.name}</strong>".html_safe) %>
+
 <div class="grid">
   <div class="grid__content">
     <hr class="squiggle squiggle--4">
@@ -7,7 +9,7 @@
         <div id="js-lightgallery">
           <% @letter.scans.each do |scan| %>
             <a href="#{scan}">
-              <%= image_tag scan, alt: "Scan of the letter" %>
+              <%= image_tag scan, alt: "Scan of a letter to #{@recipients.first.name}, #{@recipients.first.description}. From #{@letter.authors.first.name}", class: "letter__image" %>
             </a>
           <% end %>
         </div>

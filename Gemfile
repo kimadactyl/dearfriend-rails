@@ -47,12 +47,12 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'dotenv-rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   # gem 'better_errors'
   # gem 'binding_of_caller'
   gem 'database_cleaner'
+  gem 'guard'
 end
 
 group :development do

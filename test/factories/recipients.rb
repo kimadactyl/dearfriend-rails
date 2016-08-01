@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :recipient do
-    first_name "MyString"
-    last_name "MyString"
-    description "MyString"
+    first_name "Recipient"
+    last_name "Name"
+    description "long recipient description"
     born "1920-01-01"
     died "1980-05-01"
     website "http://example.com"

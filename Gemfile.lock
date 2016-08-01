@@ -377,6 +377,7 @@ DEPENDENCIES
   faker
   formtastic
   friendly_id
+  guard
   guard-livereload
   guard-minitest
   inherited_resources!
