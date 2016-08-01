@@ -29,9 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Cleaner urls
 gem 'friendly_id'
 
+# Forms
 gem 'formtastic'
 gem 'cocoon'
 # gem 'will_paginate'
+
+# File uploads and resizing
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 

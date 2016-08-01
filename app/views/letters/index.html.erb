@@ -4,18 +4,15 @@
     <% @letters.each do |letter| %>
       <div class="letters">
         <hr class="squiggle squiggle--2">
-        <h2 class="h2 letters__title">Dear
-          <%= link_to letter, class: "no-underline" do %>
-            <strong><%= letter.recipients.first.name %></strong>,
-            <%= letter.recipients.first.description %>.
-          <% end %>
+        <h2 class="h2 letters__title">
+          Dear <%= link_to letter, class: "no-underline" do %><%= letter.recipients_pp %>.<% end %>
         </h2>
         <p class="h3 letters__meta">
           Published <%= letter.published_pp %><br>
-          From <%= letter.authors.first.name %>
+          From <%= letter.authors_pp %>
         </p>
         <%= link_to letter do %>
-          <%= image_tag letter.preview, alt: "Letter to {{recipient}} from #{letter.authors.first}" %>
+          <%= image_tag letter.preview, alt: "Letter to {{recipient}} from #{letter.authors_pp}" %>
         <% end %>
         <p>
           <%= link_to "Read on", letter, class: "letters__more" %>

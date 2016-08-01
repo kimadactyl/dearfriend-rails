@@ -23,6 +23,21 @@ class Letter < ApplicationRecord
     self.published.strftime(DATE_ONLY)
   end
 
+  def recipients_pp
+    if self.recipients.count
+      return self.recipients.map { |r| "<strong>#{r.name}</strong>, #{r.description}" }.to_sentence
+    else
+      return ""
+    end
+  end
+
+  def authors_pp
+    if self.authors.count
+      return self.authors.map { |a| a.name}.to_sentence
+    else
+      return ""
+    end
+  end
 
   def pretty_url
     if self.published && self.authors.length > 0 && self.recipients.length > 0

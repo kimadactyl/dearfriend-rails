@@ -1,5 +1,5 @@
-<% provide(:meta_title, "A letter to #{@recipients.first.name}, #{@recipients.first.description}. From #{@letter.authors.first.name}") %>
-<% provide(:title, "To <strong>#{@recipients.first.name}</strong>, #{@recipients.first.description}. From <strong>#{@letter.authors.first.name}</strong>".html_safe) %>
+<% provide(:meta_title, "A letter to #{ActionView::Base.full_sanitizer.sanitize(@letter.recipients_pp)}. From #{@letter.authors_pp}") %>
+<% provide(:title, "Dear #{@letter.recipients_pp}. From #{@letter.authors_pp}".html_safe) %>
 <% if @letter.scans %>
   <% provide(:meta_image, @letter.scans.first) %>
 <% end %>
@@ -12,7 +12,7 @@
         <div id="js-lightgallery">
           <% @letter.scans.each do |scan| %>
             <a href="#{scan}">
-              <%= image_tag scan, alt: "Scan of a letter to #{@recipients.first.name}, #{@recipients.first.description}. From #{@letter.authors.first.name}", class: "letter__image" %>
+              <%= image_tag scan, alt: "Scan of a letter to #{@letter.recipients_pp}. From #{@letter.authors_pp}", class: "letter__image" %>
             </a>
           <% end %>
         </div>
