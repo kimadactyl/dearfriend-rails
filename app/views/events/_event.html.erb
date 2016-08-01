@@ -2,10 +2,10 @@
   <h2 class="h1"><%= event.title %></h2>
   <h3 class="h2"><time><%= event.from_until %></time>, <%= event.address rescue "" %></h3>
   <%= event.description %>
-  <% unless event.eventbrite && event.eventbrite.length > 0 %>
+  <% if event.eventbrite && event.eventbrite.length > 0 %>
     <p><%= link_to "Book a place on Eventbrite", event.eventbrite %></p>
   <% end %>
-  <% unless event.facebook && event.eventbrite.length > 0 %>
+  <% if event.facebook && event.eventbrite.length > 0 %>
     <p><%= link_to "Sign up on Facebook", event.facebook %></p>
   <% end %>
 </article>
