@@ -11,7 +11,7 @@ require 'yaml'
 require 'carrierwave/orm/activerecord'
 
 # Iterate our old letters
-Dir.glob("../dearfriend/src/pages/letters/**").each do |d|
+Dir.glob("#{Rails.root}/db/letters/**").each do |d|
   if File.directory? d
     begin
       # Try and open the file
