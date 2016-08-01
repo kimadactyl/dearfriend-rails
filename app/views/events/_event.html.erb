@@ -5,7 +5,7 @@
   <% if event.eventbrite && event.eventbrite.length > 0 %>
     <p><%= link_to "Book a place on Eventbrite", event.eventbrite %></p>
   <% end %>
-  <% if event.facebook && event.eventbrite.length > 0 %>
+  <% if event.facebook && event.facebook.length > 0 %>
     <p><%= link_to "Sign up on Facebook", event.facebook %></p>
   <% end %>
 </article>
