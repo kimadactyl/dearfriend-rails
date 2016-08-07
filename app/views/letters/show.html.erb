@@ -12,7 +12,7 @@
         <div id="js-lightgallery">
           <% @letter.scans.each do |scan| %>
             <a href="#{scan}">
-              <%= image_tag scan, alt: "Scan of a letter to #{@letter.recipients_pp}. From #{@letter.authors_pp}", class: "letter__image" %>
+              <%= image_tag scan, alt: "Scan of a letter to #{@letter.recipients_pp}. From #{@letter.authors_pp}", class: "letter__image" %>.
             </a>
           <% end %>
         </div>
@@ -25,21 +25,26 @@
   </div>
   <div class="grid__aside">
     <div class="letter__meta">
-      <hr class="squiggle squiggle--6">
-      <h2>About <%= @recipients.first.name %></h2>
-      <p class="letter__description">
-        <%= @recipients.first.description %>.
-        <% if @recipients.first.born %>
-          Born <%= @recipients.first.born.year %>
-          <% if @recipients.first.died %>
-          , died <%= @recipients.first.died.year %>
+      <% @recipients.each do |recipient| %>
+        <hr class="squiggle squiggle--6">
+        <h2 class="recipient__name">About <%= recipient.name %></h2>
+        <p class="letter__description">
+          <%= recipient.description %>.
+          <% if recipient.born %>
+            Born <%= recipient.born.year %>
+            <% if recipient.died %>
+            , died <%= recipient.died.year %>
+            <% end %>
+            .
           <% end %>
-          .
-        <% end %>
-        <% if @recipients.first.website %>
-          <%= link_to "More information about #{@recipients.first.name}", @recipients.first.website %>.
-        <% end %>
-      </p>
+          <% if recipient.website %>
+            <%= link_to "More information about #{recipient.name}", recipient.website %>.
+          <% end %>
+        </p>
+      <% end %>
+      <% if @recipients.length > 1 %>
+        <hr class="squiggle squiggle--6">
+      <% end %>
       <p>
         Received <%= @letter.recieved_pp %>.</br>
         Published <%= @letter.published_pp %>.

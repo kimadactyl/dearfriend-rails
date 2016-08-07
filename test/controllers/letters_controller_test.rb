@@ -15,17 +15,17 @@ class LettersControllerTest < ActionDispatch::IntegrationTest
   test "correct strings on index page" do
     # Test with one recipient
     get letters_url
-    assert_select "h2.letters__title", "Dear <strong>Recipient Name</strong>, long recipient description."
+    assert_select "h2.letters__title", "Dear Recipient Name, long recipient description."
 
     # Test with two recipients
     @letter.recipients << create(:second_recipient)
     get letters_url
-    assert_select "h2.letters__title", "Dear <strong>Recipient Name</strong>, long recipient description and <strong>Second Recipient</strong>, second recipient description."
+    assert_select "h2.letters__title", "Dear Recipient Name, long recipient description and Second Recipient, second recipient description."
 
     # Test with three recipients
     @letter.recipients << create(:third_recipient)
     get letters_url
-    assert_select "h2.letters__title", "Dear <strong>Recipient Name</strong>, long recipient description, <strong>Second Recipient</strong>, second recipient description, and <strong>Third Recipient</strong>, third recipient description."
+    assert_select "h2.letters__title", "Dear Recipient Name, long recipient description, Second Recipient, second recipient description, and Third Recipient, third recipient description."
   end
 
   test "should show letter" do
@@ -61,6 +61,9 @@ class LettersControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "A letter to Recipient Name, long recipient description, Second Recipient, second recipient description, and Third Recipient, third recipient description. From Author Name, Second Author, and Third Author | Dear Friend"
     assert_select "meta[content=?]", "A letter to Recipient Name, long recipient description, Second Recipient, second recipient description, and Third Recipient, third recipient description. From Author Name, Second Author, and Third Author | Dear Friend"
     assert_select "h1.page-title", "Dear Recipient Name, long recipient description, Second Recipient, second recipient description, and Third Recipient, third recipient description. From Author Name, Second Author, and Third Author"
+
+    # Should also have desriptions down the side
+    assert_select "h2.recipient__name", 3
   end
 
 end
