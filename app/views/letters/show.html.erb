@@ -11,7 +11,7 @@
       <div class="letter__scan">
         <div id="js-lightgallery">
           <% @letter.scans.each do |scan| %>
-            <a href="#{scan}">
+            <a href="<%= scan.url%>">
               <%= image_tag scan, alt: "Scan of a letter to #{@letter.recipients_pp}. From #{@letter.authors_pp}", class: "letter__image" %>.
             </a>
           <% end %>
