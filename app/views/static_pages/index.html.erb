@@ -14,14 +14,15 @@
     <p><strong><a href="/contribute">Check out our full submission guidelines for how to contribute</a></strong></p>
   </div>
   <div class="grid__aside">
-    <hr class="squiggle squiggle--5">
+    <% if @events %>
+      <hr class="squiggle squiggle--5">
 
-    <h2>Come to an event</h2>
+      <h2>Come to an event</h2>
 
-    <p>Not sure who to write to, or want some inspiration or help?</p>
+      <p>Not sure who to write to, or want some inspiration or help?</p>
 
-    <p><strong><a href="/events">Come to one of our events!</a></strong></p>
-
+      <p><strong><a href="/events">Come to one of our events!</a></strong></p>
+    <% end %>
     <hr class="squiggle squiggle--6">
 
     <h2>Get in touch</h2>

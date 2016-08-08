@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where("finish > ?", Date.today - 1.day).order(:start)
   end
 
   # GET /events/1

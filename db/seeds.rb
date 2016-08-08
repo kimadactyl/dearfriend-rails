@@ -89,3 +89,20 @@ Dir.glob("#{Rails.root}/db/letters/**").each do |d|
     end
   end
 end
+
+# Create some events
+20.times do
+  date = Faker::Date.between(2.months.ago, 2.months.from_now)
+  Event.create!(
+    start: date,
+    finish: date + [1,2,5,12,24].sample.hours,
+    title: Faker::Lorem.sentence,
+    description: Faker::Lorem.paragraph(2),
+    street1: Faker::Address.street_name,
+    street2: Faker::Address.street_address,
+    city: Faker::Address.city,
+    postcode: Faker::Address.postcode,
+    eventbrite: Faker::Internet.url('eventbrite.com'),
+    facebook: Faker::Internet.url('facebook')
+  )
+end
