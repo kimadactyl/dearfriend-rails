@@ -41,7 +41,7 @@ class Letter < ApplicationRecord
 
   def pretty_url
     if self.published && self.authors.length > 0 && self.recipients.length > 0
-      [ self.published.year, self.published.month, self.published.day, self.authors.first.first_name[0], self.authors.first.last_name, "to", self.recipients.first.first_name, self.recipients.first.last_name ].join("-")
+      [ self.published.year, self.published.month.to_s.rjust(2, '0'), self.published.day.to_s.rjust(2, '0'), self.authors.first.first_name[0], self.authors.first.last_name, "to", self.recipients.first.first_name, self.recipients.first.last_name ].join("-")
     else
       self.id
     end
