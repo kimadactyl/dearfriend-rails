@@ -32,7 +32,7 @@ gem 'friendly_id'
 # Forms
 gem 'formtastic'
 gem 'cocoon'
-# gem 'will_paginate'
+gem 'will_paginate'
 
 # File uploads and resizing
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'

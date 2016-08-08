@@ -4,7 +4,7 @@ class LettersController < ApplicationController
   # GET /letters
   # GET /letters.json
   def index
-    @letters = Letter.where.not(published: nil).order(:published).reverse
+    @letters = Letter.where.not(published: nil).paginate(:page => params[:page], :per_page => 15).order('published DESC')
   end
 
   # GET /letters/1

@@ -19,6 +19,10 @@
         </p>
       </div>
     <% end %>
+    <br>
+    <hr class="squiggle squiggle--2">
+    <br>
+    <%= will_paginate @letters, class: "digg_pagination" %>
   </div>
   <div class="grid__aside">
     <%= render "layouts/social" %>
