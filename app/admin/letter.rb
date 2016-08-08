@@ -30,7 +30,7 @@ ActiveAdmin.register Letter do
      panel "Authors" do
        table_for letter.authors do
          column "name" do |author|
-           author.name
+           link_to author.name, admin_author_path(author)
          end
        end
      end
@@ -38,7 +38,7 @@ ActiveAdmin.register Letter do
      panel "Recipients" do
        table_for letter.recipients do
          column "name" do |recipient|
-           recipient.name
+           link_to recipient.name, admin_recipient_path(recipient)
          end
        end
      end
