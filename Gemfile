@@ -32,7 +32,7 @@ gem 'friendly_id'
 # Forms
 gem 'formtastic'
 gem 'cocoon'
-gem 'will_paginate'
+# gem 'will_paginate'
 
 # File uploads and resizing
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
@@ -43,8 +43,8 @@ gem 'redcarpet'
 
 # Admin and users
 gem 'devise'
-gem 'activeadmin', github: 'activeadmin/activeadmin'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem "administrate", "~> 0.3.0"
+gem "bourbon"
 
 # Env variables
 gem 'dotenv-rails'

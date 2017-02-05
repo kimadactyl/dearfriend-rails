@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  namespace :admin do
+    resources :authors
+    resources :admin_users
+    resources :events
+    resources :letters
+    resources :letter_authors
+    resources :letter_recipients
+    resources :recipients
 
-  ActiveAdmin.routes(self)
+    root to: "letters#index"
+  end
 
   resources :events, only: [:index]
   resources :letter_recipients, only: [:index, :show]
