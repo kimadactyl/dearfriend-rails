@@ -19,8 +19,8 @@ class LetterDashboard < Administrate::BaseDashboard
     content: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    scans: Field::String.with_options(searchable: false),
-    preview: Field::String,
+    scans: CarrierwaveField,
+    preview: CarrierwaveField,
     slug: Field::String,
   }.freeze
 
@@ -30,38 +30,33 @@ class LetterDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :letter_authors,
     :authors,
-    :letter_recipients,
     :recipients,
+    :recieved,
+    :published
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :letter_authors,
-    :authors,
-    :letter_recipients,
-    :recipients,
     :id,
+    :authors,
+    :recipients,
     :recieved,
     :published,
     :is_draft,
     :content,
-    :created_at,
-    :updated_at,
     :scans,
     :preview,
-    :slug,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :letter_authors,
     :authors,
-    :letter_recipients,
     :recipients,
     :recieved,
     :published,

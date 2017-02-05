@@ -25,10 +25,11 @@ class AuthorDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :letter_authors,
-    :letters,
     :id,
+    :last_name,
     :first_name,
+    :email,
+    :letters
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -60,7 +61,7 @@ class AuthorDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how authors are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(author)
-  #   "Author ##{author.id}"
-  # end
+  def display_resource(author)
+    "#{author.last_first}"
+  end
 end
