@@ -70,7 +70,11 @@ class LetterDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(letter)
-  #   "Letter ##{letter.id}"
-  # end
+  def display_resource(letter)
+    if letter.authors.present? && letter.recipients.present?
+      "From #{letter.authors.first.last_first}. To #{letter.recipients.first.last_first}."
+    else
+      "Letter #{letter.id}"
+    end
+  end
 end

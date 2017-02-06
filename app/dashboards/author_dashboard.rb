@@ -62,6 +62,6 @@ class AuthorDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(author)
-    "#{author.last_first}"
+    author.last_first
   end
 end
