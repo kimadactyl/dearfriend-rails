@@ -8,10 +8,8 @@ class LetterDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    letter_authors: Field::HasMany,
-    authors: Field::HasMany,
-    letter_recipients: Field::HasMany,
-    recipients: Field::HasMany,
+    authors: Field::AuthorsField,
+    recipients: Field::RecipientsField,
     id: Field::Number,
     recieved: Field::DateTime,
     published: Field::DateTime,
@@ -72,7 +70,7 @@ class LetterDashboard < Administrate::BaseDashboard
   #
   def display_resource(letter)
     if letter.authors.present? && letter.recipients.present?
-      "From #{letter.authors.first.last_first}. To #{letter.recipients.first.last_first}."
+      "From #{letter.authors.first.name} to #{letter.recipients.first.name}"
     else
       "Letter #{letter.id}"
     end
