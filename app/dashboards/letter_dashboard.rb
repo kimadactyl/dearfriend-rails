@@ -19,7 +19,7 @@ class LetterDashboard < Administrate::BaseDashboard
     content: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    scans: CarrierwaveField,
+    scans: CarrierwaveManyField,
     preview: CarrierwaveField,
     slug: Field::String,
   }.freeze

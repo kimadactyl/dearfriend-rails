@@ -1,7 +1,7 @@
 require "administrate/field/base"
 
-class CarrierwaveManyField < Administrate::Field::Base
-  def to_s
-    data
+class CarrierwaveManyField < CarrierwaveField
+  def thumb
+    data.map { |d| d.url(:thumb) }
   end
 end
