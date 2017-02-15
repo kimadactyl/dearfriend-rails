@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/contribute", to: "static_pages#contribute"
   root to: "static_pages#index"
+
+  devise_for :admin_users
 end
