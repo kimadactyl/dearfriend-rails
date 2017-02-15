@@ -32,7 +32,8 @@ gem 'friendly_id'
 # Forms
 gem 'formtastic'
 gem 'cocoon'
-# gem 'will_paginate'
+# Administrate has this anyway but we need it for our pagination too
+gem 'kaminari'
 
 # File uploads and resizing
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
