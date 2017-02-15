@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     resources :letter_authors
     resources :letter_recipients
     resources :recipients
-
     root to: "letters#index"
   end
 
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
   resources :letter_authors, only: [:index, :show]
   resources :letters, only: [:index, :show]
   resources :recipients, only: [:index, :show]
-  resources :authors, only: [:index, :show, :update]
+  resources :authors, only: [:index, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/contact", to: "static_pages#contact"
