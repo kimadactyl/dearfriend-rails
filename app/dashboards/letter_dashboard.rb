@@ -8,8 +8,10 @@ class LetterDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    authors: Field::AuthorsField,
-    recipients: Field::RecipientsField,
+    authors: Field::HasMany,
+    authors_pp: Field::String,
+    recipients: Field::HasMany,
+    recipients_admin_pp: Field::String,
     id: Field::Number,
     recieved: Field::DateTime,
     published: Field::DateTime,
@@ -28,8 +30,8 @@ class LetterDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :authors,
-    :recipients,
+    :authors_pp,
+    :recipients_admin_pp,
     :recieved,
     :published
   ].freeze

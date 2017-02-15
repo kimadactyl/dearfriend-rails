@@ -50,12 +50,11 @@ class AuthorDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :letter_authors,
-    :letters,
     :first_name,
     :last_name,
     :twitter,
     :email,
+    :letters,
   ].freeze
 
   # Overwrite this method to customize how authors are displayed

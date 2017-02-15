@@ -31,6 +31,14 @@ class Letter < ApplicationRecord
     end
   end
 
+  def recipients_admin_pp
+    if self.recipients.count
+      return self.recipients.map { |r| r.name }.to_sentence
+    else
+      return ""
+    end
+  end
+
   def authors_pp
     if self.authors.count
       return self.authors.map { |a| a.name}.to_sentence
