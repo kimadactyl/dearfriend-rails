@@ -65,7 +65,6 @@ class LetterDashboard < Administrate::BaseDashboard
     :content,
     :scans,
     :preview,
-    :slug,
   ].freeze
 
   # Overwrite this method to customize how letters are displayed

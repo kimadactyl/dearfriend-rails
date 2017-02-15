@@ -24,4 +24,6 @@ en:
     label:
       letter:
         recipients_admin_pp: Recipients
+        recipients: Recipients
         authors_pp: Authors
+        authors: Authors
