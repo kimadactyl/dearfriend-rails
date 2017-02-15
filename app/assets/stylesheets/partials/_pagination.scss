@@ -1,0 +1,17 @@
+.pagination {
+  span {
+    border: 1px solid $primary-50;
+    margin-right: 0.25em;
+  }
+  a {
+    padding: 0.125em 0.5em;
+    text-decoration: none;
+  }
+  .current {
+    padding: 0em 0.5em;
+    color: white;
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+}
