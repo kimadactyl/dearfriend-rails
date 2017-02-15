@@ -34,7 +34,8 @@ class LetterDashboard < Administrate::BaseDashboard
     :authors_pp,
     :recipients_admin_pp,
     :recieved,
-    :published
+    :published,
+    :created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

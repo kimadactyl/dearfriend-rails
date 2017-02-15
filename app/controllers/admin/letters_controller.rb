@@ -16,28 +16,40 @@ module Admin
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
 
-    # Override to allow multiple image uploads
-    # def create
-    #   letter = params[:letter]
-    #   scans = letter[:scans]
-    #
-    #   success = true
-    #   scans.each do |img|
-    #     resource = resource_class.new(scans: img, letter: letter)
-    #     success &&= resource.save
-    #   end
-    #
-    #   if success
-    #     redirect_to(
-    #       admin_letters_path,
-    #       notice: translate_with_resource("create.success"),
-    #     )
-    #   else
-    #     render :new, locals: {
-    #       page: Administrate::Page::Form.new(dashboard, resource),
-    #     }
-    #   end
-    # end
+    before_filter :default_params
 
+    def default_params
+      params[:order] ||= "created_at"
+      params[:direction] ||= "desc"
+    end
+
+    def create
+      @letter = Letter.new(letter_params)
+
+      respond_to do |format|
+        if @letter.save
+          format.html { redirect_to @letter, notice: 'Letter was successfully created.' }
+          format.json { render :show, status: :created, location: @letter }
+        else
+          format.html { render :new }
+          format.json { render json: @letter.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
+    private
+
+      def letter_params
+        params.require(:letter).permit( :title,
+                                        :preview,
+                                        :recieved,
+                                        :published,
+                                        :is_draft,
+                                        :content,
+                                        {scans: []},
+                                        {author_ids: []},
+                                        {recipient_ids: []}
+                                      )
+      end
   end
 end
