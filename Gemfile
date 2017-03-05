@@ -43,7 +43,7 @@ gem 'mini_magick'
 gem 'redcarpet'
 
 # Admin and users
-gem 'devise'
+gem "clearance"
 gem "administrate", "~> 0.3.0"
 gem "bourbon"
 
