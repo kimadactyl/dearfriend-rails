@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :authors
-    resources :admin_users
     resources :events
     resources :letters
     resources :letter_authors
