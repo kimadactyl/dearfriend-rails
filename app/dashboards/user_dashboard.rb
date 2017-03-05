@@ -12,7 +12,8 @@ class UserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: PasswordField,
+    encrypted_password: PasswordField,
     confirmation_token: Field::String,
     remember_token: Field::String,
   }.freeze
@@ -24,18 +25,18 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :email,
     :created_at,
     :updated_at,
-    :email,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :email,
     :created_at,
     :updated_at,
-    :email,
     :encrypted_password,
     :confirmation_token,
     :remember_token,
@@ -46,9 +47,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
-    :encrypted_password,
-    :confirmation_token,
-    :remember_token,
+    :password
   ].freeze
 
   # Overwrite this method to customize how users are displayed
