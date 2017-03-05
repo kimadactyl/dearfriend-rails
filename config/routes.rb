@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  ## Change back to "delete" if we ever actually implement a link for this
+  get "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
 
   # Administrate
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   resources :recipients, only: [:index, :show]
   resources :authors, only: [:index, :show, :update]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Static pages
   get "/contact", to: "static_pages#contact"
   get "/contribute", to: "static_pages#contribute"
   root to: "static_pages#index"
