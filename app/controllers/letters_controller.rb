@@ -1,10 +1,10 @@
 class LettersController < ApplicationController
-  before_action :set_letter, only: [:show, :edit]
+  before_action :set_letter, only: [:show]
 
   # GET /letters
   # GET /letters.json
   def index
-    @letters = Letter.where.not(published: nil).paginate(:page => params[:page], :per_page => 15).order('published DESC')
+    @letters = Letter.where.not(published: nil).order('published DESC').page(params[:page]).per(15)
   end
 
   # GET /letters/1
@@ -18,4 +18,5 @@ class LettersController < ApplicationController
     def set_letter
       @letter = Letter.friendly.find(params[:id])
     end
+
 end

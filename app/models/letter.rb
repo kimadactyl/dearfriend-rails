@@ -2,18 +2,17 @@ class Letter < ApplicationRecord
   extend FriendlyId
   friendly_id :pretty_url, use: [:slugged, :finders]
 
-  has_many :letter_authors
+  has_many :letter_authors, dependent: :destroy
   has_many :authors, through: :letter_authors
-  has_many :letter_recipients
+  has_many :letter_recipients, dependent: :destroy
   has_many :recipients, through: :letter_recipients
 
-  accepts_nested_attributes_for :letter_authors
-  accepts_nested_attributes_for :letter_recipients
+  accepts_nested_attributes_for :letter_authors, allow_destroy: true
+  accepts_nested_attributes_for :letter_recipients, allow_destroy: true
   accepts_nested_attributes_for :authors, :recipients
 
   mount_uploaders :scans, ScansUploader
   mount_uploader :preview, PreviewUploader
-
 
   def recieved_pp
     self.recieved.strftime(DATE_ONLY)
@@ -31,9 +30,25 @@ class Letter < ApplicationRecord
     end
   end
 
+  def recipients_admin_pp
+    if self.recipients.count
+      return self.recipients.map { |r| r.name }.to_sentence
+    else
+      return ""
+    end
+  end
+
   def authors_pp
     if self.authors.count
-      return self.authors.map { |a| a.name}.to_sentence
+      return self.authors.map { |a| a.name }.to_sentence
+    else
+      return ""
+    end
+  end
+
+  def authors_admin_pp
+    if self.authors.count
+      return self.authors.map { |a| a.name }.to_sentence
     else
       return ""
     end
