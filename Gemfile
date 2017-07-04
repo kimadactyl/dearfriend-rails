@@ -69,13 +69,6 @@ group :development do
   gem 'rack-livereload'
   gem 'guard-livereload'
   gem 'faker'
-
-  gem 'capistrano',         require: false
-  gem 'capistrano-rvm',     require: false
-  gem 'capistrano-rails',   require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
-  gem 'capistrano-rake',    require: false
 end
 
 group :test do
@@ -85,6 +78,6 @@ group :test do
   gem 'simplecov', :require => false
 end
 
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem 'rails_12factor'
+end
