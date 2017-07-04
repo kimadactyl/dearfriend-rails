@@ -1,0 +1,13 @@
+{
+  "name": "dearfriend",
+  "description": "Dear Friend, a letter-writing project celebrating women in public life and struggles for liberation.",
+  "keywords": [
+    "dokku",
+    "rails"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
+  }
+}
